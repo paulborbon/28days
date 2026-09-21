@@ -1,0 +1,1010 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>28 Days | Artisanal Coffee & Brews</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <style>
+    :root {
+      --coffee-dark: #231612;
+      --coffee-medium: #4a2c20;
+      --coffee-accent: #c49a6c;
+      --coffee-light: #fbf8f5;
+      --coffee-cream: #efe5dc;
+      --coffee-text-muted: #7d6e67;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      color: var(--coffee-dark);
+      background-color: var(--coffee-light);
+      scroll-behavior: smooth;
+    }
+
+    h1, h2, h3, .brand-font {
+      font-family: 'Playfair Display', Georgia, serif;
+    }
+
+    /* Custom Navbar */
+    .navbar {
+      background-color: rgba(35, 22, 18, 0.95);
+      backdrop-filter: blur(8px);
+      transition: all 0.3s ease;
+    }
+    .navbar .nav-link {
+      color: #dfd7d2 !important;
+      font-weight: 500;
+      font-size: 0.95rem;
+      margin: 0 4px;
+      transition: color 0.2s;
+    }
+    .navbar .nav-link:hover, .navbar .nav-link.active {
+      color: var(--coffee-accent) !important;
+    }
+    .btn-coffee {
+      background-color: var(--coffee-accent);
+      color: #fff;
+      font-weight: 600;
+      border: none;
+      border-radius: 30px;
+      padding: 8px 22px;
+      transition: all 0.3s ease;
+    }
+    .btn-coffee:hover {
+      background-color: #b08557;
+      color: #fff;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(196, 154, 108, 0.35);
+    }
+    .btn-outline-coffee {
+      border: 2px solid var(--coffee-accent);
+      color: var(--coffee-accent);
+      border-radius: 30px;
+      font-weight: 600;
+      padding: 8px 22px;
+    }
+    .btn-outline-coffee:hover {
+      background-color: var(--coffee-accent);
+      color: white;
+    }
+
+    /* Carousel */
+    .hero-carousel .carousel-item {
+      height: 82vh;
+      min-height: 520px;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+    .hero-carousel .carousel-item::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(24, 14, 11, 0.5) 0%, rgba(20, 11, 8, 0.85) 100%);
+    }
+    .carousel-caption {
+      bottom: 25%;
+      z-index: 2;
+    }
+
+    /* Section Styling */
+    section {
+      padding: 90px 0;
+    }
+    .section-title {
+      font-size: 2.3rem;
+      font-weight: 700;
+      position: relative;
+      margin-bottom: 12px;
+    }
+    .section-subtitle {
+      color: var(--coffee-text-muted);
+      font-size: 1.05rem;
+      max-width: 600px;
+      margin: 0 auto 50px auto;
+    }
+    .gold-accent {
+      color: var(--coffee-accent);
+    }
+
+    /* Cards */
+    .custom-card {
+      background: #ffffff;
+      border-radius: 18px;
+      border: 1px solid rgba(196, 154, 108, 0.2);
+      overflow: hidden;
+      transition: all 0.35s ease;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.03);
+    }
+    .custom-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 30px rgba(74, 44, 32, 0.12);
+      border-color: var(--coffee-accent);
+    }
+
+    /* Tabs */
+    .nav-pills .nav-link {
+      color: var(--coffee-medium);
+      border-radius: 30px;
+      padding: 10px 28px;
+      font-weight: 600;
+      margin: 0 6px;
+      background: #eee5dc;
+    }
+    .nav-pills .nav-link.active {
+      background-color: var(--coffee-medium);
+      color: #fff;
+    }
+
+    /* Promo Tag */
+    .badge-promo {
+      background-color: #d9534f;
+      color: #fff;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-weight: 700;
+      padding: 6px 12px;
+      border-radius: 20px;
+    }
+
+    footer {
+      background-color: var(--coffee-dark);
+      color: #ccc;
+      padding-top: 60px;
+      padding-bottom: 30px;
+    }
+  </style>
+</head>
+<body data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-offset="80">
+
+  <!-- NAVBAR -->
+  <nav id="mainNav" class="navbar navbar-expand-lg fixed-top shadow-sm">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center text-white" href="#hero">
+        <i class="bi bi-cup-hot-fill gold-accent fs-3 me-2"></i>
+        <span class="brand-font fs-3 fw-bold tracking-wide">28 DAYS</span>
+      </a>
+      <button class="navbar-toggler text-white border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navContent">
+        <i class="bi bi-list fs-2 text-light"></i>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navContent">
+        <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#mission-vision">Mission & Vision</a></li>
+          <li class="nav-item"><a class="nav-link" href="#menu">Coffee Menu</a></li>
+          <li class="nav-item"><a class="nav-link" href="#promotions">Promotions</a></li>
+          <li class="nav-item"><a class="nav-link" href="#order">Delivery</a></li>
+          <li class="nav-item"><a class="nav-link" href="#membership">Membership</a></li>
+          <li class="nav-item"><a class="nav-link" href="#inquiry">Inquiries</a></li>
+        </ul>
+        <a href="#order" class="btn btn-coffee ms-lg-2">
+          <i class="bi bi-bag-heart me-1"></i> Order Now
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- TOP HORIZONTAL CAROUSEL -->
+  <header id="hero">
+    <div id="heroCarousel" class="carousel slide hero-carousel carousel-fade" data-bs-ride="carousel" data-bs-interval="4500">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active"></button>
+        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1"></button>
+        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2"></button>
+      </div>
+
+      <div class="carousel-inner">
+        <!-- Slide 1 -->
+        <div class="carousel-item active" style="background-image: url('https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=1600&q=80');">
+          <div class="carousel-caption text-center text-white">
+            <span class="text-uppercase tracking-widest gold-accent fw-bold small">A New Habit Begins</span>
+            <h1 class="display-3 fw-bold my-3">It Takes 28 Days to Form a Habit.</h1>
+            <p class="lead mb-4 mx-auto" style="max-width: 650px;">
+              Make your daily morning cup a craft ritual. Sourced sustainably, roasted to precise perfection.
+            </p>
+            <div class="d-flex justify-content-center gap-3">
+              <a href="#menu" class="btn btn-coffee btn-lg px-4">Explore Menu</a>
+              <a href="#order" class="btn btn-outline-light rounded-pill btn-lg px-4">Order Delivery</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="carousel-item" style="background-image: url('https://images.unsplash.com/photo-1517701604599-bb29b565090c?auto=format&fit=crop&w=1600&q=80');">
+          <div class="carousel-caption text-center text-white">
+            <span class="text-uppercase tracking-widest gold-accent fw-bold small">Fresh Seasonal Blends</span>
+            <h1 class="display-3 fw-bold my-3">Cold Brews & Velvety Lattes</h1>
+            <p class="lead mb-4 mx-auto" style="max-width: 650px;">
+              Whether piping hot or ice-chilled for 18 hours, taste the clean, bright notes in every drop.
+            </p>
+            <a href="#promotions" class="btn btn-coffee btn-lg px-4">See Offers</a>
+          </div>
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="carousel-item" style="background-image: url('https://images.unsplash.com/photo-1447933601403-0c6688de566e?auto=format&fit=crop&w=1600&q=80');">
+          <div class="carousel-caption text-center text-white">
+            <span class="text-uppercase tracking-widest gold-accent fw-bold small">Direct To Your Door</span>
+            <h1 class="display-3 fw-bold my-3">Fast & Eco-Friendly Delivery</h1>
+            <p class="lead mb-4 mx-auto" style="max-width: 650px;">
+              Order in minutes and enjoy café-standard warmth in the comfort of your living space or office.
+            </p>
+            <a href="#membership" class="btn btn-coffee btn-lg px-4">Join 28 Club</a>
+          </div>
+        </div>
+      </div>
+
+      <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon"></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ABOUT SECTION -->
+  <section id="about">
+    <div class="container">
+      <div class="row align-items-center g-5">
+        <div class="col-lg-6">
+          <div class="position-relative">
+            <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=900&q=80" alt="About 28 Days Coffee" class="img-fluid rounded-4 shadow-lg w-100">
+            <div class="position-absolute bottom-0 start-0 bg-white p-3 m-3 rounded-3 shadow border-start border-4 border-warning d-none d-sm-block">
+              <p class="mb-0 fw-bold fs-5 text-dark">Peak Freshness</p>
+              <small class="text-muted">Served strictly within 28 days of roasting</small>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <span class="text-uppercase fw-bold gold-accent tracking-widest">Our Story</span>
+          <h2 class="section-title mt-2">Why "28 Days"?</h2>
+          <p class="lead text-muted">
+            Psychology says it takes 28 consecutive days to build a habit that sticks. In the world of specialty coffee, 28 days also marks the peak post-roast window when whole beans hold their most complex, vibrant aromas.
+          </p>
+          <p class="text-muted">
+            Founded by independent baristas and coffee enthusiasts, <strong>28 Days</strong> was created to be the ritual you look forward to waking up for. From ethical single-origin farms to our slow-batch micro-roaster, each pour embodies patience, precision, and community warmth.
+          </p>
+          <div class="row g-3 pt-2">
+            <div class="col-sm-6">
+              <div class="d-flex align-items-center">
+                <i class="bi bi-patch-check-fill fs-3 gold-accent me-2"></i>
+                <span class="fw-semibold">100% Arabica Beans</span>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="d-flex align-items-center">
+                <i class="bi bi-tree-fill fs-3 gold-accent me-2"></i>
+                <span class="fw-semibold">Eco-Conscious Packaging</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MISSION & VISION SECTION -->
+  <section id="mission-vision" class="bg-white">
+    <div class="container">
+      <div class="text-center">
+        <span class="text-uppercase fw-bold gold-accent tracking-widest">Purpose & Future</span>
+        <h2 class="section-title">Our Mission & Vision</h2>
+        <p class="section-subtitle">Guiding principles fueling every single cup we brew.</p>
+      </div>
+
+      <div class="row g-4 justify-content-center">
+        <!-- Mission Card -->
+        <div class="col-md-6 col-lg-5">
+          <div class="custom-card p-4 p-lg-5 h-100 border-top border-4 border-dark">
+            <div class="d-inline-flex p-3 rounded-circle bg-light gold-accent mb-4 fs-2">
+              <i class="bi bi-compass"></i>
+            </div>
+            <h3 class="fw-bold mb-3">Our Mission</h3>
+            <p class="text-muted leading-relaxed mb-0">
+              To transform ordinary daily routines into intentional moments of comfort and joy. We commit to transparent farmer partnerships, fair wages, zero compromises on bean freshness, and crafting consistent brews that nurture connection.
+            </p>
+          </div>
+        </div>
+
+        <!-- Vision Card -->
+        <div class="col-md-6 col-lg-5">
+          <div class="custom-card p-4 p-lg-5 h-100 border-top border-4 border-warning">
+            <div class="d-inline-flex p-3 rounded-circle bg-light gold-accent mb-4 fs-2">
+              <i class="bi bi-eye"></i>
+            </div>
+            <h3 class="fw-bold mb-3">Our Vision</h3>
+            <p class="text-muted leading-relaxed mb-0">
+              To build a mindful global coffee community where quality, environmental stewardship, and heartfelt hospitality thrive together—proving that small, mindful everyday rituals can shape a better world.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COFFEE MENU SECTION (HOT & COLD) -->
+  <section id="menu">
+    <div class="container">
+      <div class="text-center">
+        <span class="text-uppercase fw-bold gold-accent tracking-widest">Carefully Brewed</span>
+        <h2 class="section-title">Select Your Coffee</h2>
+        <p class="section-subtitle">Choose from comforting warm classics to refreshing, slow-steeped cold creations.</p>
+
+        <!-- Hot / Cold Filter Tabs -->
+        <ul class="nav nav-pills justify-content-center mb-5" id="coffeeMenuTabs" role="tablist">
+          <li class="nav-item">
+            <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#all-coffee">
+              <i class="bi bi-grid-fill me-1"></i> All Brews
+            </button>
+          </li>
+          <li class="nav-item">
+            <button class="nav-link" data-bs-toggle="pill" data-bs-target="#hot-coffee">
+              <i class="bi bi-cup-hot me-1"></i> Hot Coffee
+            </button>
+          </li>
+          <li class="nav-item">
+            <button class="nav-link" data-bs-toggle="pill" data-bs-target="#cold-coffee">
+              <i class="bi bi-cup-straw me-1"></i> Cold & Iced
+            </button>
+          </li>
+        </ul>
+      </div>
+
+      <div class="tab-content" id="coffeeMenuTabsContent">
+        <!-- ALL COFFEE -->
+        <div class="tab-pane fade show active" id="all-coffee">
+          <div class="row g-4">
+            <!-- Item 1 Hot -->
+            <div class="col-md-6 col-lg-4">
+              <div class="card custom-card h-100">
+                <img src="https://images.unsplash.com/photo-1541167760496-1628856ab772?auto=format&fit=crop&w=600&q=80" class="card-img-top" alt="28 Signature Flat White" style="height: 220px; object-fit: cover;">
+                <div class="card-body d-flex flex-column p-4">
+                  <div class="d-flex justify-content-between align-items-center mb-2">
+                    <span class="badge bg-danger-subtle text-danger fw-semibold">Hot</span>
+                    <span class="fs-5 fw-bold text-dark">$4.75</span>
+                  </div>
+                  <h4 class="card-title fw-bold">28 Signature Flat White</h4>
+                  <p class="card-text text-muted small flex-grow-1">Velvety micro-foamed whole milk gently poured over our signature double ristretto blend.</p>
+                  <button class="btn btn-outline-coffee w-100 add-to-order-btn" data-coffee="28 Signature Flat White (Hot)">Select for Order</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Item 2 Cold -->
+            <div class="col-md-6 col-lg-4">
+              <div class="card custom-card h-100">
+                <img src="https://images.unsplash.com/photo-1517701604599-bb29b565090c?auto=format&fit=crop&w=600&q=80" class="card-img-top" alt="Vanilla Nitro Cold Brew" style="height: 220px; object-fit: cover;">
+                <div class="card-body d-flex flex-column p-4">
+                  <div class="d-flex justify-content-between align-items-center mb-2">
+                    <span class="badge bg-info-subtle text-info fw-semibold">Cold</span>
+                    <span class="fs-5 fw-bold text-dark">$5.50</span>
+                  </div>
+                  <h4 class="card-title fw-bold">Vanilla Nitro Cold Brew</h4>
+                  <p class="card-text text-muted small flex-grow-1">Steeped for 20 hours, infused with nitrogen for a silky Guinness-like head and Madagascar vanilla.</p>
+                  <button class="btn btn-outline-coffee w-100 add-to-order-btn" data-coffee="Vanilla Nitro Cold Brew (Cold)">Select for Order</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Item 3 Hot -->
+            <div class="col-md-6 col-lg-4">
+              <div class="card custom-card h-100">
+                <img src="https://images.unsplash.com/photo-1572442388796-11668a67e53d?auto=format&fit=crop&w=600&q=80" class="card-img-top" alt="Caramel Cinnamon Cortado" style="height: 220px; object-fit: cover;">
+                <div class="card-body d-flex flex-column p-4">
+                  <div class="d-flex justify-content-between align-items-center mb-2">
+                    <span class="badge bg-danger-subtle text-danger fw-semibold">Hot</span>
+                    <span class="fs-5 fw-bold text-dark">$4.50</span>
+                  </div>
+                  <h4 class="card-title fw-bold">Caramel Cortado</h4>
+                  <p class="card-text text-muted small flex-grow-1">Equal parts dense espresso and warm steamed milk accented with organic salted caramel glaze.</p>
+                  <button class="btn btn-outline-coffee w-100 add-to-order-btn" data-coffee="Caramel Cortado (Hot)">Select for Order</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Item 4 Cold -->
+            <div class="col-md-6 col-lg-4">
+              <div class="card custom-card h-100">
+                <img src="https://images.unsplash.com/photo-1517256064527-09c73fc73e38?auto=format&fit=crop&w=600&q=80" class="card-img-top" alt="Iced Spanish Latte" style="height: 220px; object-fit: cover;">
+                <div class="card-body d-flex flex-column p-4">
+                  <div class="d-flex justify-content-between align-items-center mb-2">
+                    <span class="badge bg-info-subtle text-info fw-semibold">Cold</span>
+                    <span class="fs-5 fw-bold text-dark">$5.25</span>
+                  </div>
+                  <h4 class="card-title fw-bold">Iced Spanish Latte</h4>
+                  <p class="card-text text-muted small flex-grow-1">Rich espresso combined with sweetened condensed milk poured over crystal cubed ice.</p>
+                  <button class="btn btn-outline-coffee w-100 add-to-order-btn" data-coffee="Iced Spanish Latte (Cold)">Select for Order</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Item 5 Hot -->
+            <div class="col-md-6 col-lg-4">
+              <div class="card custom-card h-100">
+                <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=600&q=80" class="card-img-top" alt="Single-Origin Pour Over" style="height: 220px; object-fit: cover;">
+                <div class="card-body d-flex flex-column p-4">
+                  <div class="d-flex justify-content-between align-items-center mb-2">
+                    <span class="badge bg-danger-subtle text-danger fw-semibold">Hot</span>
+                    <span class="fs-5 fw-bold text-dark">$5.00</span>
+                  </div>
+                  <h4 class="card-title fw-bold">Single-Origin V60 Pour Over</h4>
+                  <p class="card-text text-muted small flex-grow-1">Ethiopian Yirgacheffe highlighting crisp jasmine floral notes, lemon zest, and clean peach finish.</p>
+                  <button class="btn btn-outline-coffee w-100 add-to-order-btn" data-coffee="Single-Origin V60 Pour Over (Hot)">Select for Order</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Item 6 Cold -->
+            <div class="col-md-6 col-lg-4">
+              <div class="card custom-card h-100">
+                <img src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=600&q=80" class="card-img-top" alt="Iced Coconut Americano" style="height: 220px; object-fit: cover;">
+                <div class="card-body d-flex flex-column p-4">
+                  <div class="d-flex justify-content-between align-items-center mb-2">
+                    <span class="badge bg-info-subtle text-info fw-semibold">Cold</span>
+                    <span class="fs-5 fw-bold text-dark">$4.95</span>
+                  </div>
+                  <h4 class="card-title fw-bold">Coconut Cloud Tonic</h4>
+                  <p class="card-text text-muted small flex-grow-1">Refreshing raw coconut water topped with a double-shot espresso floating layer.</p>
+                  <button class="btn btn-outline-coffee w-100 add-to-order-btn" data-coffee="Coconut Cloud Tonic (Cold)">Select for Order</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- HOT COFFEE ONLY -->
+        <div class="tab-pane fade" id="hot-coffee">
+          <div class="row g-4">
+            <div class="col-md-4">
+              <div class="card custom-card h-100 p-4">
+                <span class="badge bg-danger-subtle text-danger align-self-start mb-2">Hot Classic</span>
+                <h4 class="fw-bold">28 Signature Flat White</h4>
+                <p class="text-muted small">Double ristretto, velvety steamed milk.</p>
+                <div class="d-flex justify-content-between align-items-center mt-auto">
+                  <span class="fw-bold fs-5">$4.75</span>
+                  <button class="btn btn-sm btn-coffee add-to-order-btn" data-coffee="28 Signature Flat White (Hot)">Select</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card custom-card h-100 p-4">
+                <span class="badge bg-danger-subtle text-danger align-self-start mb-2">Hot Sweet</span>
+                <h4 class="fw-bold">Caramel Cortado</h4>
+                <p class="text-muted small">Espresso, warm textured milk, salted caramel drizzle.</p>
+                <div class="d-flex justify-content-between align-items-center mt-auto">
+                  <span class="fw-bold fs-5">$4.50</span>
+                  <button class="btn btn-sm btn-coffee add-to-order-btn" data-coffee="Caramel Cortado (Hot)">Select</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card custom-card h-100 p-4">
+                <span class="badge bg-danger-subtle text-danger align-self-start mb-2">Hot Drip</span>
+                <h4 class="fw-bold">Single-Origin V60 Pour Over</h4>
+                <p class="text-muted small">Fresh batch brewed manually with floral and fruit notes.</p>
+                <div class="d-flex justify-content-between align-items-center mt-auto">
+                  <span class="fw-bold fs-5">$5.00</span>
+                  <button class="btn btn-sm btn-coffee add-to-order-btn" data-coffee="Single-Origin V60 Pour Over (Hot)">Select</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- COLD COFFEE ONLY -->
+        <div class="tab-pane fade" id="cold-coffee">
+          <div class="row g-4">
+            <div class="col-md-4">
+              <div class="card custom-card h-100 p-4">
+                <span class="badge bg-info-subtle text-info align-self-start mb-2">Cold Draft</span>
+                <h4 class="fw-bold">Vanilla Nitro Cold Brew</h4>
+                <p class="text-muted small">Nitrogen infused, ultra silky texture.</p>
+                <div class="d-flex justify-content-between align-items-center mt-auto">
+                  <span class="fw-bold fs-5">$5.50</span>
+                  <button class="btn btn-sm btn-coffee add-to-order-btn" data-coffee="Vanilla Nitro Cold Brew (Cold)">Select</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card custom-card h-100 p-4">
+                <span class="badge bg-info-subtle text-info align-self-start mb-2">Iced Creamy</span>
+                <h4 class="fw-bold">Iced Spanish Latte</h4>
+                <p class="text-muted small">Double espresso with chilled sweet milk on ice.</p>
+                <div class="d-flex justify-content-between align-items-center mt-auto">
+                  <span class="fw-bold fs-5">$5.25</span>
+                  <button class="btn btn-sm btn-coffee add-to-order-btn" data-coffee="Iced Spanish Latte (Cold)">Select</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card custom-card h-100 p-4">
+                <span class="badge bg-info-subtle text-info align-self-start mb-2">Iced Refreshing</span>
+                <h4 class="fw-bold">Coconut Cloud Tonic</h4>
+                <p class="text-muted small">Pure organic coconut water and floated espresso.</p>
+                <div class="d-flex justify-content-between align-items-center mt-auto">
+                  <span class="fw-bold fs-5">$4.95</span>
+                  <button class="btn btn-sm btn-coffee add-to-order-btn" data-coffee="Coconut Cloud Tonic (Cold)">Select</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROMOTIONS SECTION -->
+  <section id="promotions" class="bg-white">
+    <div class="container">
+      <div class="text-center">
+        <span class="text-uppercase fw-bold gold-accent tracking-widest">Special Offers</span>
+        <h2 class="section-title">Exclusive Deals & Bundles</h2>
+        <p class="section-subtitle">Take advantage of our current seasonal discounts and bundle perks.</p>
+      </div>
+
+      <div class="row g-4">
+        <!-- Promo 1 -->
+        <div class="col-lg-4">
+          <div class="custom-card p-4 h-100 position-relative border-0 shadow-sm" style="background: linear-gradient(145deg, #fdfaf6 0%, #faede0 100%);">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+              <span class="badge-promo">Active Promo</span>
+              <span class="fw-bold text-danger fs-5">Save 25%</span>
+            </div>
+            <h3 class="fw-bold">Morning Habit Duo</h3>
+            <p class="text-muted">Order any Hot or Cold beverage before 10:00 AM and get a fresh artisan butter croissant or pastry for just $2.00 extra.</p>
+            <div class="mt-4 pt-2 border-top">
+              <small class="text-muted d-block">Use Voucher Code:</small>
+              <span class="badge bg-dark text-warning fs-6 px-3 py-2 mt-1">HABIT28</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Promo 2 -->
+        <div class="col-lg-4">
+          <div class="custom-card p-4 h-100 position-relative border-0 shadow-sm" style="background: linear-gradient(145deg, #261713 0%, #3a221b 100%); color: #fff;">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+              <span class="badge bg-warning text-dark fw-bold text-uppercase px-2 py-1">Best Value</span>
+              <span class="fw-bold text-warning fs-5">BOGO 50%</span>
+            </div>
+            <h3 class="fw-bold text-white">Cold Brew Fridays</h3>
+            <p class="text-white-50">Buy any 1 large Nitro Cold Brew or Iced Latte and get the second iced coffee at 50% off. Ideal for sharing with a workmate.</p>
+            <div class="mt-4 pt-2 border-top border-secondary">
+              <small class="text-white-50 d-block">Valid Every Friday:</small>
+              <span class="badge bg-light text-dark fs-6 px-3 py-2 mt-1">CHILL28</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Promo 3 -->
+        <div class="col-lg-4">
+          <div class="custom-card p-4 h-100 position-relative border-0 shadow-sm" style="background: linear-gradient(145deg, #fdfaf6 0%, #faede0 100%);">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+              <span class="badge-promo">Free Delivery</span>
+              <span class="fw-bold text-danger fs-5">$0 Fee</span>
+            </div>
+            <h3 class="fw-bold">First Order On Us</h3>
+            <p class="text-muted">Enjoy free door-to-door delivery on your very first online order of $18 or more. Delivered fresh in eco-friendly thermal cups.</p>
+            <div class="mt-4 pt-2 border-top">
+              <small class="text-muted d-block">Online Checkout Code:</small>
+              <span class="badge bg-dark text-warning fs-6 px-3 py-2 mt-1">TRY28DAYS</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ORDER ONLINE WITH DELIVERY SECTION -->
+  <section id="order">
+    <div class="container">
+      <div class="row align-items-center justify-content-center">
+        <div class="col-lg-10">
+          <div class="custom-card p-4 p-md-5">
+            <div class="row g-4">
+              <div class="col-lg-5 pe-lg-4 border-end-lg">
+                <span class="text-uppercase fw-bold gold-accent tracking-widest">Doorstep Service</span>
+                <h2 class="section-title">Order for Delivery</h2>
+                <p class="text-muted">Warm sips brought right to your door. We pack all warm and iced items in double-sealed thermal cups to guarantee maximum freshness.</p>
+                
+                <div class="d-flex align-items-center mb-3 text-dark">
+                  <div class="bg-light p-3 rounded-circle me-3">
+                    <i class="bi bi-clock-history fs-4 gold-accent"></i>
+                  </div>
+                  <div>
+                    <h6 class="mb-0 fw-bold">Estimated Delivery</h6>
+                    <small class="text-muted">20 - 35 Minutes</small>
+                  </div>
+                </div>
+
+                <div class="d-flex align-items-center mb-3 text-dark">
+                  <div class="bg-light p-3 rounded-circle me-3">
+                    <i class="bi bi-shield-check fs-4 gold-accent"></i>
+                  </div>
+                  <div>
+                    <h6 class="mb-0 fw-bold">Spill-Proof Guaranteed</h6>
+                    <small class="text-muted">Secure spill-lock biodegradable cups</small>
+                  </div>
+                </div>
+
+                <div class="alert alert-warning py-2 mt-4" role="alert">
+                  <i class="bi bi-info-circle me-1"></i> Tip: Select coffee from the menu above to pre-fill your order!
+                </div>
+              </div>
+
+              <!-- Order Form -->
+              <div class="col-lg-7 ps-lg-4">
+                <form id="deliveryOrderForm">
+                  <div class="row g-3">
+                    <div class="col-md-6">
+                      <label class="form-label fw-semibold">Your Full Name</label>
+                      <input type="text" class="form-control rounded-3" placeholder="Jane Doe" required>
+                    </div>
+                    <div class="col-md-6">
+                      <label class="form-label fw-semibold">Phone Number</label>
+                      <input type="tel" class="form-control rounded-3" placeholder="+1 (555) 000-0000" required>
+                    </div>
+
+                    <div class="col-12">
+                      <label class="form-label fw-semibold">Delivery Address</label>
+                      <input type="text" class="form-control rounded-3" placeholder="Apartment / Suite, Street Address, City" required>
+                    </div>
+
+                    <div class="col-md-7">
+                      <label class="form-label fw-semibold">Selected Coffee Item</label>
+                      <select class="form-select rounded-3" id="orderCoffeeSelect" required>
+                        <option value="" selected disabled>Select your drink...</option>
+                        <optgroup label="Hot Coffee">
+                          <option value="28 Signature Flat White (Hot)">28 Signature Flat White (Hot) - $4.75</option>
+                          <option value="Caramel Cortado (Hot)">Caramel Cortado (Hot) - $4.50</option>
+                          <option value="Single-Origin V60 Pour Over (Hot)">Single-Origin V60 Pour Over (Hot) - $5.00</option>
+                        </optgroup>
+                        <optgroup label="Cold Coffee">
+                          <option value="Vanilla Nitro Cold Brew (Cold)">Vanilla Nitro Cold Brew (Cold) - $5.50</option>
+                          <option value="Iced Spanish Latte (Cold)">Iced Spanish Latte (Cold) - $5.25</option>
+                          <option value="Coconut Cloud Tonic (Cold)">Coconut Cloud Tonic (Cold) - $4.95</option>
+                        </optgroup>
+                      </select>
+                    </div>
+
+                    <div class="col-md-5">
+                      <label class="form-label fw-semibold">Quantity</label>
+                      <input type="number" class="form-control rounded-3" value="1" min="1" max="20" required>
+                    </div>
+
+                    <div class="col-md-6">
+                      <label class="form-label fw-semibold">Milk Preference</label>
+                      <select class="form-select rounded-3">
+                        <option selected>Oat Milk (+ $0.50)</option>
+                        <option>Almond Milk (+ $0.50)</option>
+                        <option>Whole Dairy Milk</option>
+                        <option>Non-Fat Milk</option>
+                      </select>
+                    </div>
+
+                    <div class="col-md-6">
+                      <label class="form-label fw-semibold">Promo Code</label>
+                      <input type="text" class="form-control rounded-3" placeholder="e.g. TRY28DAYS">
+                    </div>
+
+                    <div class="col-12">
+                      <label class="form-label fw-semibold">Delivery Instructions (Optional)</label>
+                      <textarea class="form-control rounded-3" rows="2" placeholder="e.g., Leave on doorstep, ring buzzer #2B"></textarea>
+                    </div>
+
+                    <div class="col-12 mt-4">
+                      <button type="submit" class="btn btn-coffee w-100 py-3 fs-6">
+                        <i class="bi bi-truck me-2"></i> Confirm & Place Delivery Order
+                      </button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MEMBERSHIP APPLICATION SECTION -->
+  <section id="membership" class="bg-white">
+    <div class="container">
+      <div class="text-center">
+        <span class="text-uppercase fw-bold gold-accent tracking-widest">The 28 Habit Club</span>
+        <h2 class="section-title">Membership Application</h2>
+        <p class="section-subtitle">Commit to the habit. Get free coffee, private tastings, and bean deliveries.</p>
+      </div>
+
+      <div class="row g-5 align-items-center">
+        <div class="col-lg-6">
+          <div class="p-4 p-md-5 rounded-4 text-white" style="background: linear-gradient(135deg, #1f120e 0%, #3e2419 100%);">
+            <h3 class="brand-font mb-4 text-warning">Perks of the 28 Club</h3>
+            <ul class="list-unstyled d-flex flex-column gap-3 mb-4">
+              <li class="d-flex align-items-start">
+                <i class="bi bi-check-circle-fill text-warning fs-5 me-3"></i>
+                <span><strong>Every 7th Drink Free:</strong> Automatically tallied in your member profile.</span>
+              </li>
+              <li class="d-flex align-items-start">
+                <i class="bi bi-check-circle-fill text-warning fs-5 me-3"></i>
+                <span><strong>Complimentary Roasted Beans:</strong> One free 250g bag of single-origin beans every month.</span>
+              </li>
+              <li class="d-flex align-items-start">
+                <i class="bi bi-check-circle-fill text-warning fs-5 me-3"></i>
+                <span><strong>Cupping Invitations:</strong> Access to monthly invite-only barista tasting sessions.</span>
+              </li>
+              <li class="d-flex align-items-start">
+                <i class="bi bi-check-circle-fill text-warning fs-5 me-3"></i>
+                <span><strong>Zero Delivery Fees:</strong> Free shipping on every online order with priority slot.</span>
+              </li>
+            </ul>
+            <div class="p-3 rounded-3 bg-black bg-opacity-25 border border-secondary">
+              <small class="text-white-50">Membership Fee: <strong>$14.99/mo</strong> (Cancel anytime with 1-click).</small>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="custom-card p-4 p-md-5">
+            <h4 class="fw-bold mb-3">Join the 28 Days Club</h4>
+            <form id="membershipForm">
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label class="form-label fw-semibold">First Name</label>
+                  <input type="text" class="form-control rounded-3" placeholder="John" required>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label fw-semibold">Last Name</label>
+                  <input type="text" class="form-control rounded-3" placeholder="Smith" required>
+                </div>
+                <div class="col-12">
+                  <label class="form-label fw-semibold">Email Address</label>
+                  <input type="email" class="form-control rounded-3" placeholder="john@example.com" required>
+                </div>
+                <div class="col-12">
+                  <label class="form-label fw-semibold">Preferred Brew Style</label>
+                  <select class="form-select rounded-3">
+                    <option selected>Hot Espresso Drinks & Lattes</option>
+                    <option>Cold Brews & Iced Coffee</option>
+                    <option>Filter & Pour Over (Black)</option>
+                    <option>Both Hot and Cold</option>
+                  </select>
+                </div>
+                <div class="col-12">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="termsCheck" required>
+                    <label class="form-check-label small text-muted" for="termsCheck">
+                      I agree to the membership terms, weekly bean newsletter, and rewards program conditions.
+                    </label>
+                  </div>
+                </div>
+                <div class="col-12 mt-3">
+                  <button type="submit" class="btn btn-coffee w-100 py-3">Submit Membership Application</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INQUIRY / CONTACT SECTION -->
+  <section id="inquiry">
+    <div class="container">
+      <div class="text-center">
+        <span class="text-uppercase fw-bold gold-accent tracking-widest">Connect With Us</span>
+        <h2 class="section-title">General Inquiries</h2>
+        <p class="section-subtitle">Have questions about our catering, coffee beans, or partnerships? Send us a message.</p>
+      </div>
+
+      <div class="row g-4 justify-content-center">
+        <!-- Contact Info Side -->
+        <div class="col-lg-4">
+          <div class="custom-card p-4 h-100">
+            <h4 class="fw-bold mb-4">Store Location</h4>
+            
+            <div class="d-flex align-items-start mb-4">
+              <i class="bi bi-geo-alt-fill fs-4 gold-accent me-3"></i>
+              <div>
+                <h6 class="fw-bold mb-1">Café & Roastery</h6>
+                <p class="text-muted small mb-0">28 Artisan Lane, Roaster's Quarter<br>Metropolis, NY 10001</p>
+              </div>
+            </div>
+
+            <div class="d-flex align-items-start mb-4">
+              <i class="bi bi-telephone-fill fs-4 gold-accent me-3"></i>
+              <div>
+                <h6 class="fw-bold mb-1">Call Us</h6>
+                <p class="text-muted small mb-0">+1 (800) 28-DAYS-COFFEE</p>
+              </div>
+            </div>
+
+            <div class="d-flex align-items-start mb-4">
+              <i class="bi bi-envelope-fill fs-4 gold-accent me-3"></i>
+              <div>
+                <h6 class="fw-bold mb-1">Email Direct</h6>
+                <p class="text-muted small mb-0">hello@28dayscoffee.com</p>
+              </div>
+            </div>
+
+            <div class="d-flex align-items-start">
+              <i class="bi bi-clock-fill fs-4 gold-accent me-3"></i>
+              <div>
+                <h6 class="fw-bold mb-1">Hours</h6>
+                <p class="text-muted small mb-0">Mon – Sun: 6:30 AM – 8:00 PM</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Inquiry Form -->
+        <div class="col-lg-8">
+          <div class="custom-card p-4 p-md-5">
+            <form id="inquiryForm">
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label class="form-label fw-semibold">Your Name</label>
+                  <input type="text" class="form-control rounded-3" placeholder="Alex Morgan" required>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label fw-semibold">Email Address</label>
+                  <input type="email" class="form-control rounded-3" placeholder="alex@email.com" required>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label fw-semibold">Phone (Optional)</label>
+                  <input type="tel" class="form-control rounded-3" placeholder="+1 (555) 123-4567">
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label fw-semibold">Inquiry Type</label>
+                  <select class="form-select rounded-3">
+                    <option selected>General Inquiry</option>
+                    <option>Wholesale Coffee Beans</option>
+                    <option>Corporate Event Catering</option>
+                    <option>Press & Partnerships</option>
+                  </select>
+                </div>
+                <div class="col-12">
+                  <label class="form-label fw-semibold">Message</label>
+                  <textarea class="form-control rounded-3" rows="4" placeholder="How can our barista team help you?" required></textarea>
+                </div>
+                <div class="col-12">
+                  <button type="submit" class="btn btn-coffee px-5 py-3">Send Message</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="row g-4 justify-content-between">
+        <div class="col-md-4">
+          <div class="d-flex align-items-center text-white mb-2">
+            <i class="bi bi-cup-hot-fill gold-accent fs-3 me-2"></i>
+            <span class="brand-font fs-3 fw-bold">28 DAYS</span>
+          </div>
+          <p class="text-secondary small">
+            Crafting sustainable coffee rituals that turn every 28-day habit into a lifetime of good taste.
+          </p>
+        </div>
+        
+        <div class="col-md-3">
+          <h6 class="text-white fw-bold mb-3">Quick Navigation</h6>
+          <ul class="list-unstyled text-secondary small d-flex flex-column gap-2">
+            <li><a href="#about" class="text-decoration-none text-secondary">Our Story</a></li>
+            <li><a href="#menu" class="text-decoration-none text-secondary">Hot & Cold Menu</a></li>
+            <li><a href="#promotions" class="text-decoration-none text-secondary">Special Promotions</a></li>
+            <li><a href="#order" class="text-decoration-none text-secondary">Order Delivery</a></li>
+            <li><a href="#membership" class="text-decoration-none text-secondary">Membership Application</a></li>
+          </ul>
+        </div>
+
+        <div class="col-md-4">
+          <h6 class="text-white fw-bold mb-3">Follow The Brew</h6>
+          <div class="d-flex gap-3 fs-5 mb-3">
+            <a href="#" class="text-white-50 hover-gold"><i class="bi bi-instagram"></i></a>
+            <a href="#" class="text-white-50 hover-gold"><i class="bi bi-facebook"></i></a>
+            <a href="#" class="text-white-50 hover-gold"><i class="bi bi-twitter-x"></i></a>
+            <a href="#" class="text-white-50 hover-gold"><i class="bi bi-tiktok"></i></a>
+          </div>
+          <p class="small text-secondary mb-0">© <span id="currentYear"></span> 28 Days Coffee Inc. All rights reserved.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Generic Feedback Modal -->
+  <div class="modal fade" id="feedbackModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content rounded-4 border-0 shadow">
+        <div class="modal-body text-center p-5">
+          <div class="mb-3">
+            <i class="bi bi-check-circle-fill text-success fs-1"></i>
+          </div>
+          <h3 class="fw-bold" id="modalTitle">Request Received!</h3>
+          <p class="text-muted" id="modalMessage">Thank you for connecting with 28 Days Coffee.</p>
+          <button type="button" class="btn btn-coffee px-4 mt-3" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap 5 JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Interactive Logic -->
+  <script>
+    // Set current year
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+    const feedbackModal = new bootstrap.Modal(document.getElementById('feedbackModal'));
+    const modalTitle = document.getElementById('modalTitle');
+    const modalMessage = document.getElementById('modalMessage');
+
+    // Quick add button logic: preselect dropdown & scroll to Delivery form
+    document.querySelectorAll('.add-to-order-btn').forEach(button => {
+      button.addEventListener('click', () => {
+        const item = button.getAttribute('data-coffee');
+        const select = document.getElementById('orderCoffeeSelect');
+        
+        // Find matching option
+        for (let i = 0; i < select.options.length; i++) {
+          if (select.options[i].value === item) {
+            select.selectedIndex = i;
+            break;
+          }
+        }
+
+        // Smooth scroll to order section
+        document.getElementById('order').scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+
+    // Handle Delivery Form Submit
+    document.getElementById('deliveryOrderForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      modalTitle.textContent = "Order Placed!";
+      modalMessage.textContent = "Your coffee delivery is being freshly extracted and packed. Our courier will contact you shortly.";
+      feedbackModal.show();
+      this.reset();
+    });
+
+    // Handle Membership Form Submit
+    document.getElementById('membershipForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      modalTitle.textContent = "Welcome to the 28 Club!";
+      modalMessage.textContent = "Your membership application has been received. Check your inbox for your digital member card and free welcome coupon.";
+      feedbackModal.show();
+      this.reset();
+    });
+
+    // Handle Inquiry Form Submit
+    document.getElementById('inquiryForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      modalTitle.textContent = "Message Sent!";
+      modalMessage.textContent = "Thank you for reaching out to 28 Days. A team member will respond within 24 business hours.";
+      feedbackModal.show();
+      this.reset();
+    });
+  </script>
+</body>
+</html>
