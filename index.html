@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-cafe-theme="coffee" data-bs-theme="light">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -166,17 +166,201 @@
       padding-top: 60px;
       padding-bottom: 30px;
     }
+
+    /* Color themes */
+    :root[data-cafe-theme="coffee"] {
+      --cafe-page: #fbf4e9;
+      --cafe-section: #f1e4d4;
+      --cafe-card: #fffaf3;
+      --cafe-text: #2b1a14;
+      --cafe-muted: #655248;
+      --cafe-accent: #825035;
+      --cafe-hover: #663b27;
+      --cafe-on-accent: #fffaf3;
+      --cafe-border: #d2bba7;
+      --cafe-nav: #2b1a14;
+      --cafe-nav-text: #fff2e3;
+      --cafe-nav-accent: #f3be89;
+    }
+    :root[data-cafe-theme="light"] {
+      --cafe-page: #ffffff;
+      --cafe-section: #f1f3f5;
+      --cafe-card: #ffffff;
+      --cafe-text: #20262b;
+      --cafe-muted: #4d5962;
+      --cafe-accent: #395663;
+      --cafe-hover: #283f49;
+      --cafe-on-accent: #ffffff;
+      --cafe-border: #b5c0c7;
+      --cafe-nav: #ffffff;
+      --cafe-nav-text: #20262b;
+      --cafe-nav-accent: #395663;
+    }
+    :root[data-cafe-theme="dark"] {
+      --cafe-page: #141619;
+      --cafe-section: #1c1e22;
+      --cafe-card: #24272c;
+      --cafe-text: #f4f4f5;
+      --cafe-muted: #c2c7cd;
+      --cafe-accent: #c3d8e8;
+      --cafe-hover: #e2eff8;
+      --cafe-on-accent: #19252f;
+      --cafe-border: #656e79;
+      --cafe-nav: #141619;
+      --cafe-nav-text: #f4f4f5;
+      --cafe-nav-accent: #c3d8e8;
+    }
+    :root[data-cafe-theme] {
+      --coffee-dark: var(--cafe-text);
+      color-scheme: light;
+      --coffee-medium: var(--cafe-accent);
+      --coffee-light: var(--cafe-page);
+      --coffee-text-muted: var(--cafe-muted);
+      --bs-body-color: var(--cafe-text);
+      --bs-body-bg: var(--cafe-card);
+      --bs-secondary-color: var(--cafe-muted);
+      --bs-border-color: var(--cafe-border);
+    }
+    :root[data-cafe-theme="dark"] { color-scheme: dark; }
+    [data-cafe-theme] section.bg-white {
+      background: var(--cafe-section) !important;
+    }
+    [data-cafe-theme] section .bg-white,
+    [data-cafe-theme] section .custom-card,
+    [data-cafe-theme] .modal-content {
+      background: var(--cafe-card) !important;
+      border-color: var(--cafe-border);
+      color: var(--cafe-text);
+    }
+    [data-cafe-theme] section .text-dark {
+      color: var(--cafe-text) !important;
+    }
+    [data-cafe-theme] section .bg-warning.text-dark {
+      color: #231612 !important;
+    }
+    [data-cafe-theme] #promotions .custom-card:has(.text-white-50) {
+      background: linear-gradient(145deg, #261713, #3a221b) !important;
+    }
+    [data-cafe-theme] #promotions .custom-card .text-danger { color: var(--cafe-accent) !important; }
+    [data-cafe-theme] section .badge.text-danger { color: var(--bs-danger-text-emphasis) !important; }
+    [data-cafe-theme] section .badge.text-info { color: var(--bs-info-text-emphasis) !important; }
+    [data-cafe-theme] section .bg-light {
+      background-color: var(--cafe-section) !important;
+    }
+    [data-cafe-theme] section .gold-accent { color: var(--cafe-accent); }
+    [data-cafe-theme] #hero .gold-accent { color: #f3be89; }
+    [data-cafe-theme] .btn-coffee,
+    [data-cafe-theme] .btn-outline-coffee:hover,
+    [data-cafe-theme] .nav-pills .nav-link.active {
+      background: var(--cafe-accent);
+      color: var(--cafe-on-accent);
+    }
+    [data-cafe-theme] .btn-coffee:hover {
+      background: var(--cafe-hover);
+      color: var(--cafe-on-accent);
+    }
+    [data-cafe-theme] .btn-outline-coffee {
+      border-color: var(--cafe-accent);
+    }
+    [data-cafe-theme] .btn-outline-coffee:not(:hover),
+    [data-cafe-theme] .nav-pills .nav-link:not(.active) {
+      color: var(--cafe-accent);
+    }
+    [data-cafe-theme] .nav-pills .nav-link:not(.active) {
+      background: var(--cafe-section);
+    }
+    [data-cafe-theme] #mainNav {
+      background: var(--cafe-nav);
+    }
+    [data-cafe-theme] #mainNav .navbar-brand,
+    [data-cafe-theme] #mainNav .navbar-toggler i,
+    [data-cafe-theme] #mainNav .nav-link {
+      color: var(--cafe-nav-text) !important;
+    }
+    [data-cafe-theme] #mainNav .gold-accent,
+    [data-cafe-theme] #mainNav .nav-link:hover,
+    [data-cafe-theme] #mainNav .nav-link.active {
+      color: var(--cafe-nav-accent) !important;
+    }
+    [data-cafe-theme] footer {
+      background: var(--cafe-nav);
+      color: var(--cafe-nav-text);
+    }
+    [data-cafe-theme] footer :is(.text-white, .text-white-50, .text-secondary, .gold-accent) {
+      color: var(--cafe-nav-text) !important;
+    }
+    .cafe-theme-picker {
+      background: var(--cafe-nav);
+      border: 1px solid var(--cafe-border);
+      border-radius: 1.5rem;
+      color: var(--cafe-nav-text);
+      font-family: inherit;
+      font-size: .875rem;
+      font-weight: 600;
+      padding: .35rem .6rem;
+      margin-inline-start: auto;
+      min-height: 36px;
+    }
+    .cafe-theme-picker:focus-visible {
+      outline: 2px solid var(--cafe-nav-accent);
+      outline-offset: 3px;
+    }
+    @media (max-width: 359px) {
+      #mainNav .navbar-brand { margin-right: .25rem; }
+      #mainNav .navbar-brand span { font-size: 1.15rem !important; }
+    }
+    @media (min-width: 1200px) {
+      #mainNav .cafe-theme-picker { order: 1; margin-inline-start: .65rem; }
+    }
   </style>
+  <script>
+    (() => {
+      const root = document.documentElement;
+      const storageKey = '28days-theme';
+      const themes = ['coffee', 'light', 'dark'];
+
+      function applyTheme(theme) {
+        root.dataset.cafeTheme = theme;
+        root.dataset.bsTheme = theme === 'dark' ? 'dark' : 'light';
+      }
+
+      try {
+        const savedTheme = localStorage.getItem(storageKey);
+        if (themes.includes(savedTheme)) applyTheme(savedTheme);
+      } catch {
+        // The default theme still works when browser storage is unavailable.
+      }
+
+      document.addEventListener('DOMContentLoaded', () => {
+        const picker = document.getElementById('themePicker');
+        picker.value = root.dataset.cafeTheme;
+        picker.addEventListener('change', () => {
+          if (!themes.includes(picker.value)) return;
+          applyTheme(picker.value);
+          try {
+            localStorage.setItem(storageKey, picker.value);
+          } catch {
+            // The selected theme still applies until the page reloads.
+          }
+        });
+      }, { once: true });
+    })();
+  </script>
 </head>
 <body data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-offset="80">
 
   <!-- NAVBAR -->
-  <nav id="mainNav" class="navbar navbar-expand-lg fixed-top shadow-sm">
+  <nav id="mainNav" class="navbar navbar-expand-xl fixed-top shadow-sm">
     <div class="container">
       <a class="navbar-brand d-flex align-items-center text-white" href="#hero">
         <i class="bi bi-cup-hot-fill gold-accent fs-3 me-2"></i>
         <span class="brand-font fs-3 fw-bold tracking-wide">28 DAYS</span>
       </a>
+      <select id="themePicker" class="cafe-theme-picker" aria-label="Color theme">
+        <option value="coffee" selected>Coffee mode</option>
+        <option value="light">Light mode</option>
+        <option value="dark">Dark mode</option>
+      </select>
       <button class="navbar-toggler text-white border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navContent">
         <i class="bi bi-list fs-2 text-light"></i>
       </button>
@@ -200,7 +384,7 @@
 
   <!-- TOP HORIZONTAL CAROUSEL -->
   <header id="hero">
-    <div id="heroCarousel" class="carousel slide hero-carousel carousel-fade" data-bs-ride="carousel" data-bs-interval="4500">
+    <div id="heroCarousel" data-bs-theme="light" class="carousel slide hero-carousel carousel-fade" data-bs-ride="carousel" data-bs-interval="4500">
       <div class="carousel-indicators">
         <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active"></button>
         <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1"></button>
